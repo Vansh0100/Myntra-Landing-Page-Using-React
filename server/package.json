@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "backened-server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon index.js"
+    "dev": "nodemon babel-node index.js",
+    "start": "nodemon --exec babel-node index.js"
   },
   "author": "Vansh Jaiswal",
   "license": "ISC",
@@ -18,7 +20,9 @@
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.8"
   }
 }
