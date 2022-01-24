@@ -1,7 +1,7 @@
-import {ImageModel} from "./Images/index";
-import {OrderModel} from "./Orders/index";
-import {ProductModel} from "./Products/index";
-import {ReviewModel} from "./Reviews/index";
-import {UserModel} from "./Users/index";
+import {ImageModel} from "./Images/index.js";
+import {OrderModel} from "./Orders/index.js";
+import {ProductModel} from "./Products/index.js";
+import {ReviewModel} from "./Reviews/index.js";
+import {UserModel} from "./Users/index.js";
 
-export const {ImageModel,OrderModel,ProductModel,ReviewModel,UserModel};
+export  {ImageModel,OrderModel,ProductModel,ReviewModel,UserModel};
