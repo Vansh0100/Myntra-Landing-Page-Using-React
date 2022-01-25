@@ -16,7 +16,7 @@ const UserSchema=new mongoose.Schema(
     }
 )
 UserSchema.methods.generateJwtToken=function(){
-    return jwt.sign(this._id.toString(),"E-Commerce App");
+    return jwt.sign({user:this._id.toString()},"ECommerce");
 }
 UserSchema.statics.checkEmailAndPhone=async({email,phoneNumber})=>{
     const checkEmail=await UserModel.findOne({email});

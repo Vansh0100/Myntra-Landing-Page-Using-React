@@ -4,6 +4,7 @@ const ReviewSchema=new mongoose.Schema(
     {
         user:{type:mongoose.Types.ObjectId,ref:"Users"},
         photos:{type:mongoose.Types.ObjectId,ref:"Images"},
+        product:{type:mongoose.Types.ObjectId,ref:"Products"},
         rating:{type:Number},
         reviewText:{type:String},
         isProductReview:{type:Boolean},
