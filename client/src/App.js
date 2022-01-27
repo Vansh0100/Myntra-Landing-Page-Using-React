@@ -1,10 +1,23 @@
 import './App.css';
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import {Route} from "react-router-dom";
+
+// Importing HOC
+import DefaultHoc from './hoc/default.hoc';
+
+// Importing pages
+import homepage from './pages/homepage';
+
 function App() {
   return (
-    <div className="text-red-500">
-      React Js
-    </div>
+    <>
+      
+        <DefaultHoc path="/" exact component={homepage} />
+      
+    </>
   );
 }
 
