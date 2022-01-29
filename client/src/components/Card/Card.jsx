@@ -19,7 +19,7 @@ function Card() {
     <div className='sm:w-full flex flex-row flex-wrap md:w-4/5 lg:w-full  p-3 container justify-center '>
         {images.map((image)=>{
             return (
-                <div className='sm:w-1/2 h-96 md:w-4/12  lg:w-1/4 md:h-96 lg:h-96 p-3'>
+                <div className='sm:w-1/2 h-96 md:w-4/12  lg:w-1/5 md:h-96 lg:h-96 p-3'>
                     <img src={image} alt='cards' className='w-full h-full '/>
                 </div>
             )

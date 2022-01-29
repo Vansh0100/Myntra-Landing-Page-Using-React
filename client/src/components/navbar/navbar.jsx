@@ -53,7 +53,7 @@ function NavSm({Signin,Signup}) {
                 className="w-1/5"
                 onClick={() => setIsDropDownOpen((prev) => !prev)}
               >
-                <CgProfile className="w-full h-full text-red-400" />
+                <CgProfile className="w-full h-full " />
                 </div>
                 {isDropDownOpen && (
                   <div className=' shadow-md rounded-md -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2'>
