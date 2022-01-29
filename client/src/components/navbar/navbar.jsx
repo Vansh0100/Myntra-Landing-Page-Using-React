@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsBell, BsBookmarkDash, BsHandbag } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
-function NavSm() {
+// import Signin from "../Auth/SignIn";
+// import Signup from "../Auth/SignUp";
+import Signin from "../Auth/SignIn";
+import Signup from "../Auth/SignUp";
+function NavSm({Signin,Signup}) {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [user, setUser] = useState({});
   return (
@@ -15,7 +19,7 @@ function NavSm() {
             className="w-full h-full object-center object-cover"
           />
         </div>
-        <div className=" p-2 flex flex-row gap-5 w-4/5">
+        <div className=" p-2 flex flex-row gap-5 w-full">
           <div className="w-1/5">
             <BiSearch className="w-full h-full" />
           </div>
@@ -38,8 +42,8 @@ function NavSm() {
                 <CgProfile className="w-full h-full" />
                 </div>
                 {isDropDownOpen && (
-                  <div className='className="absolute shadow-lg py-3 -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2'>
-                    <button>SignOut</button>
+                  <div className=' shadow-md py-2 rounded-md  w-full bg-white z-20 flex flex-col gap-2 border-2'>
+                    <button className="hover:bg-red-400 hover:text-white rounded-md ">SignOut</button>
                   </div>
                 )}
             </>
@@ -49,12 +53,12 @@ function NavSm() {
                 className="w-1/5"
                 onClick={() => setIsDropDownOpen((prev) => !prev)}
               >
-                <CgProfile className="w-full h-full" />
+                <CgProfile className="w-full h-full text-red-400" />
                 </div>
                 {isDropDownOpen && (
-                  <div className='className="absolute shadow-lg  -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2'>
-                    <button>SignIn</button>
-                    <button>SignUp</button>
+                  <div className=' shadow-md rounded-md -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2'>
+                    <button className="hover:bg-red-400 hover:text-white rounded-md" onClick={Signin}>SignIn</button>
+                    <button className="hover:bg-red-400 hover:text-white rounded-md" onClick={Signup}>SignUp</button>
                   </div>
                 )}
             </>
@@ -64,7 +68,7 @@ function NavSm() {
     </>
   );
 }
-function NavLg() {
+function NavLg({Signin,Signup}) {
   return (
     <>
       <div className="hidden md:flex flex-row w-full p-2 gap-3 ">
@@ -101,19 +105,26 @@ function NavLg() {
           
        </div>
         <div className="w-1/5 flex flex-row gap-2  justify-center pt-3">
-          <button className='bg-red-400 text-white rounded-lg  h-8 p-1 w-full'>Login</button>
-          <button className='bg-red-400 text-white rounded-lg h-8 p-1 w-full'>SignUp</button>
+          <button className='bg-red-400 text-white rounded-lg  h-8 p-1 w-full' onClick={Signin}>Login</button>
+          <button className='bg-red-400 text-white rounded-lg h-8 p-1 w-full' onClick={Signup}>SignUp</button>
         </div>
       </div>
     </>
   );
 }
 function Navbar() {
+  const [openSignIn, setOpenSignIn] = useState(false);
+  const [openSignUp, setOpenSignUp] = useState(false);
+
+  const openSignInModal = () => setOpenSignIn(true);
+  const openSignUpModal = () => setOpenSignUp(true);
   return (
     <>
+    <Signin isOpen={openSignIn} setIsOpen={setOpenSignIn} />
+      <Signup isOpen={openSignUp} setIsOpen={setOpenSignUp} />
       <nav className="px-2  border-2 w-screen">
-        <NavSm />
-        <NavLg />
+        <NavSm Signin={openSignInModal} Signup={openSignUpModal}/>
+        <NavLg Signin={openSignInModal} Signup={openSignUpModal}/>
       </nav>
     </>
   );
